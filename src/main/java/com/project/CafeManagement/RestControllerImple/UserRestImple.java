@@ -42,7 +42,7 @@ public class UserRestImple implements userRestController {
 			e.printStackTrace();
 			return CafeUtils.getResponseEntity("An error occured during sign please check your mail or password",
 					HttpStatus.INTERNAL_SERVER_ERROR);
-			// TODO: handle exception
+
 		}
 	}
 }

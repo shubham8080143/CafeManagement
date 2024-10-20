@@ -39,4 +39,13 @@ public class CustomrUserDetailsService implements UserDetailsService {
 			throw new UsernameNotFoundException("User not found with email: " + username);
 		}
 	}
+
+//	public User getUserDetails() {
+//		return userDetail;
+//	}
+
+	public User getUserDetails() {
+		// TODO Auto-generated method stub
+		return userDetail;
+	}
 }

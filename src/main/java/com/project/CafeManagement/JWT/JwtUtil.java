@@ -18,9 +18,13 @@ public class JwtUtil {
 	private String secret = "cafe"; // Secret key used for signing the token
 
 	// Generate token for a specific user
-	public String generateToken(String username) {
+	public String generateToken(String email, String role) {
+		// Claims can be used to add custom fields in the token (like role)
 		Map<String, Object> claims = new HashMap<>();
-		return createToken(claims, username);
+		claims.put("role", role); // Adding role to the token
+
+		// Creating the JWT token
+		return createToken(claims, email);
 	}
 
 	// Create the JWT token
