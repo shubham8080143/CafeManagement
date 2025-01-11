@@ -14,6 +14,13 @@ import jakarta.persistence.NamedQuery;
 import lombok.Data;
 
 @NamedQuery(name = "User.findByEmailId", query = "select u from User u where u.email=:email")
+
+@NamedQuery(name = "user.getAllUsers", query = "SELECT new com.project.CafeManagement.wrapper.userWrapper(u.id, u.name, u.contactnumber, u.email, u.status, u.role,u.password) FROM User u where u.role='user'")
+
+@NamedQuery(name = "user.updateStatus ", query = "UPDATE User u SET u.status = :status WHERE u.id = :id")
+
+@NamedQuery(name = "user.getAllUsers", query = "SELECT new com.project.CafeManagement.wrapper.userWrapper(u.id, u.name, u.contactnumber, u.email, u.status, u.role,u.password) FROM User u where u.role='Admin'")
+
 @Data
 @DynamicUpdate
 @DynamicInsert
@@ -30,9 +37,9 @@ public class User implements Serializable {
 	@Column(name = "name")
 	private String name;
 
-//	public String getId() {
-//		return id;
-//	}
+	public Integer getId() {
+		return id;
+	}
 //
 //	public void setId(String id) {
 //		this.id = id;
